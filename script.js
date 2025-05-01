@@ -55,3 +55,26 @@ function showLogin() {
 }
 
 function
+let cos = [];
+let total = 0;
+
+function adaugaInCos(produs, pret) {
+  cos.push({ produs: produs, pret: pret });
+  total += pret;
+
+  // Actualizează lista din coș
+  actualizeazaCos();
+}
+
+function actualizeazaCos() {
+  const listaCos = document.getElementById('cos-lista');
+  listaCos.innerHTML = '';
+
+  cos.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item.produs + " - " + item.pret + " RON";
+    listaCos.appendChild(li);
+  });
+
+  document.getElementById('total').textContent = total;
+}
