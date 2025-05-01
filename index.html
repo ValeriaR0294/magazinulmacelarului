@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Magazin Online de Carne</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Magazin Online de Carne</h1>
+    <nav>
+      <a href="#">Acasă</a>
+      <a href="#" onclick="showCart()">Coș (<span id="cart-count">0</span>)</a>
+      <a href="#" onclick="showLogin()">Autentificare</a>
+    </nav>
+  </header>
+
+  <aside class="filters">
+    <h3>Filtrează produsele</h3>
+    <button onclick="filterProducts('toate')">Toate</button>
+    <button onclick="filterProducts('vita')">Vită</button>
+    <button onclick="filterProducts('porc')">Porc</button>
+    <button onclick="filterProducts('pui')">Pui</button>
+  </aside>
+
+  <main>
+    <section id="products" class="products">
+      <div class="product" data-category="vita">
+        <img src="https://via.placeholder.com/200" alt="Antricot de vită">
+        <h2>Antricot de vită</h2>
+        <p>Carne de vită premium, maturată 21 zile.</p>
+        <p class="price">75 lei/kg</p>
+        <button onclick="addToCart('Antricot de vită', 75)">Adaugă în coș</button>
+      </div>
+
+      <div class="product" data-category="porc">
+        <img src="https://via.placeholder.com/200" alt="Pulpă de porc">
+        <h2>Pulpă de porc</h2>
+        <p>Proaspătă, proveniență locală.</p>
+        <p class="price">35 lei/kg</p>
+        <button onclick="addToCart('Pulpă de porc', 35)">Adaugă în coș</button>
+      </div>
+
+      <div class="product" data-category="pui">
+        <img src="https://via.placeholder.com/200" alt="Piept de pui">
+        <h2>Piept de pui</h2>
+        <p>Fraged, crescut natural.</p>
+        <p class="price">28 lei/kg</p>
+        <button onclick="addToCart('Piept de pui', 28)">Adaugă în coș</button>
+      </div>
+    </section>
+
+    <!-- Coș de cumpărături -->
+    <section id="cart" class="cart hidden">
+      <h2>Coș de cumpărături</h2>
+      <ul id="cart-items"></ul>
+      <p>Total: <span id="cart-total">0</span> lei</p>
+      <button onclick="checkout()">Finalizează comanda</button>
+      <button onclick="hideCart()">Închide</button>
+    </section>
+
+    <!-- Formular Autentificare -->
+    <section id="login" class="login hidden">
+      <h2>Autentificare</h2>
+      <input type="text" id="username" placeholder="Nume utilizator">
+      <input type="password" id="password" placeholder="Parolă">
+      <button onclick="login()">Autentifică-te</button>
+      <button onclick="hideLogin()">Închide</button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Magazin Online de Carne. Toate drepturile rezervate.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
